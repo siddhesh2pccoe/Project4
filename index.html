@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Food Ordering Website</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Foodies</h1>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div id="menu-items"></div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: info@foodies.com</p>
+            <p>Phone: (123) 456-7890</p>
+        </section>
+    </main>
+
+   
+
+    <script>
+        // Load menu items from XML
+        fetch('menu.xml')
+            .then(response => response.text())
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            .then(data => {
+                const items = data.getElementsByTagName('item');
+                let menuHTML = '';
+                for (let item of items) {
+                    const name = item.getElementsByTagName('name')[0].textContent;
+                    const price = item.getElementsByTagName('price')[0].textContent;
+                    const description = item.getElementsByTagName('description')[0].textContent;
+                    menuHTML += `
+                        <div class="menu-item">
+                            <h3>${name}</h3>
+                            <p>${description}</p>
+                            <p class="price">$${price}</p>
+                        </div>
+                    `;
+                }
+                document.getElementById('menu-items').innerHTML = menuHTML;
+            });
+    </script>
+</body>
+</html>

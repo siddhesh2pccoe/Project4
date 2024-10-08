@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <item>
+        <name>Cheeseburger</name>
+        <price>8.99</price>
+        <description>A delicious cheeseburger with fresh lettuce and tomato.</description>
+    </item>
+    <item>
+        <name>Pasta Primavera</name>
+        <price>12.99</price>
+        <description>Classic pasta with seasonal vegetables in a light sauce.</description>
+    </item>
+    <item>
+        <name>Margherita Pizza</name>
+        <price>10.99</price>
+        <description>Traditional pizza topped with fresh mozzarella and basil.</description>
+    </item>
+    <item>
+        <name>Caesar Salad</name>
+        <price>7.99</price>
+        <description>Crisp romaine lettuce with Caesar dressing and croutons.</description>
+    </item>
+</menu>
